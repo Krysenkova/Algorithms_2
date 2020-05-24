@@ -8,9 +8,9 @@ import org.junit.Test;
 public class DoublyLinkedListTest {
     private DoublyLinkedList<Student> provideDoublyList() {
         DoublyLinkedList<Student> list = new DoublyLinkedList<>();
-        Student s1 = new Student("Watson", "John", 1, 3568);
-        Student s2 = new Student("Holmes", "Sherlock", 5, 7629);
-        Student s3 = new Student("Moriarty", "James", 3, 4321);
+        var s1 = new Student("Watson", "John", 1, 3568);
+        var s2 = new Student("Holmes", "Sherlock", 5, 7629);
+        var s3 = new Student("Moriarty", "James", 3, 4321);
         list.add(s1);
         list.add(s2);
         list.add(s3);
@@ -20,7 +20,7 @@ public class DoublyLinkedListTest {
     @Test
     public void doubly_addTest() {
         DoublyLinkedList<Student> testList = provideDoublyList();
-        Student s4 = new Student("Hooper", "Molly", 2, 3256);
+        var s4 = new Student("Hooper", "Molly", 2, 3256);
         testList.add(s4);
         Assert.assertEquals(s4, testList.get(3));
     }
@@ -28,14 +28,14 @@ public class DoublyLinkedListTest {
     @Test
     public void doubly_addAtIndexTest() {
         DoublyLinkedList<Student> testList = provideDoublyList();
-        Student s4 = new Student("Hooper", "Molly", 2, 3256);
+        var s4 = new Student("Hooper", "Molly", 2, 3256);
         testList.add(2, s4);
         Assert.assertEquals(s4, testList.get(2));
     }
     @Test
     public void doubly_addFirstTest(){
         DoublyLinkedList<Student> testList = provideDoublyList();
-        Student s4 = new Student("Hooper", "Molly", 2, 3256);
+        var s4 = new Student("Hooper", "Molly", 2, 3256);
         testList.addFirst(s4);
         Assert.assertEquals(s4, testList.get(0));
     }
@@ -43,9 +43,9 @@ public class DoublyLinkedListTest {
     @Test
     public void doubly_getTest(){
         DoublyLinkedList<Student> list = new DoublyLinkedList<>();
-        Student s1 = new Student("Watson", "John", 1, 3568);
-        Student s2 = new Student("Holmes", "Sherlock", 5, 7629);
-        Student s3 = new Student("Moriarty", "James", 3, 4321);
+        var s1 = new Student("Watson", "John", 1, 3568);
+        var s2 = new Student("Holmes", "Sherlock", 5, 7629);
+        var s3 = new Student("Moriarty", "James", 3, 4321);
         list.add(s1);
         list.add(s2);
         list.add(s3);

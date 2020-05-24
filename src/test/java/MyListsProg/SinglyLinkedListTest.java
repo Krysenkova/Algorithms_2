@@ -12,9 +12,9 @@ import org.junit.Assert;
 public class SinglyLinkedListTest {
     private SinglyLinkedList<Student> provideList() {
         SinglyLinkedList<Student> list = new SinglyLinkedList<>();
-        Student s1 = new Student("Watson", "John", 1, 3568);
-        Student s2 = new Student("Holmes", "Sherlock", 5, 7629);
-        Student s3 = new Student("Moriarty", "James", 3, 4321);
+        var s1 = new Student("Watson", "John", 1, 3568);
+        var s2 = new Student("Holmes", "Sherlock", 5, 7629);
+        var s3 = new Student("Moriarty", "James", 3, 4321);
         list.add(s1);
         list.add(s2);
         list.add(s3);
@@ -24,8 +24,8 @@ public class SinglyLinkedListTest {
     @Test
     public void getTest(){
         SinglyLinkedList<Student> testList = new SinglyLinkedList<>();
-        Student s1 = new Student("Watson", "John", 1, 3568);
-        Student s2 = new Student("Holmes", "Sherlock", 5, 7629);
+        var s1 = new Student("Watson", "John", 1, 3568);
+        var s2 = new Student("Holmes", "Sherlock", 5, 7629);
         testList.add(s1);
         testList.add(s2);
         Assert.assertEquals(s2, testList.get(1));
@@ -34,7 +34,7 @@ public class SinglyLinkedListTest {
     @Test
     public void addTest() {
         SinglyLinkedList<Student> testList = provideList();
-        Student s4 = new Student("Hooper", "Molly", 2, 3256);
+        var s4 = new Student("Hooper", "Molly", 2, 3256);
         testList.add(s4);
         Assert.assertEquals(s4, testList.get(3));
     }
@@ -42,7 +42,7 @@ public class SinglyLinkedListTest {
     @Test
     public void addAtIndexTest() {
         SinglyLinkedList<Student> testList = provideList();
-        Student s4 = new Student("Hooper", "Molly", 2, 3256);
+        var s4 = new Student("Hooper", "Molly", 2, 3256);
         testList.add(2, s4);
         Assert.assertEquals(s4, testList.get(2));
     }
@@ -50,7 +50,7 @@ public class SinglyLinkedListTest {
     @Test
     public void addFirstTest(){
         SinglyLinkedList<Student> testList = provideList();
-        Student s4 = new Student("Hooper", "Molly", 2, 3256);
+        var s4 = new Student("Hooper", "Molly", 2, 3256);
         testList.addFirst(s4);
         Assert.assertEquals(s4, testList.get(0));
     }
