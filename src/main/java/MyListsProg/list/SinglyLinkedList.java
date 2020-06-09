@@ -63,7 +63,14 @@ public class SinglyLinkedList<T> implements Listable<T> {
         Node node = new Node();
         node.data = data;
         node.next = null;
-        if (head == null) {
+        if (index < 0){
+            System.out.println("Wrong Index. The student wasn't added");
+        }
+        else if(index > size()){
+            System.out.println("Index is bigger than the size of the list. The student will be attached to the end of the list at index " + size());
+            addLast(data);
+        }
+        else if (head == null) {
             head = node;
         } else if (index == 0) {
             node.next = head;
@@ -132,21 +139,19 @@ public class SinglyLinkedList<T> implements Listable<T> {
 
     @Override
     public void remove(int index) {
+        if(index >= size()){
+            System.out.println("");
+        }
         if (head == null)
-            return;
+            System.out.println("List is empty!");
         Node temp = head;
         if (index == 0) {
-            head = temp.next;   // Change head
-            return;
-        }
-        for (int i = 0; temp != null && i < index - 1; i++) // Find previous node of the node to be deleted
+            head = temp.next; }
+        for (int i = 0; temp != null && i < index - 1; i++)
             temp = temp.next;
-        if (temp == null || temp.next == null) //// If position is more than number of ndoes
+        if (temp == null || temp.next == null)
             return;
-        // Node temp->next is the node to be deleted
-        // Store pointer to the next of node to be deleted
-        Node next = temp.next.next;
-        temp.next = next;  // Unlink the deleted node from list
+        temp.next = temp.next.next;
     }
 
     @Override
@@ -167,6 +172,9 @@ public class SinglyLinkedList<T> implements Listable<T> {
 
     @Override
     public void printAll() {
+        if(isEmpty()){
+            System.out.println("The list is already empty!");
+        }
         Node temp = head;
         while (temp != null) {
             System.out.println(temp.data);

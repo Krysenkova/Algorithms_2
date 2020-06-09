@@ -1,5 +1,9 @@
 package MyListsProg.list;
+
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class DoublyLinkedList<T> implements Listable<T>, Iterable<T> {
 
@@ -7,16 +11,34 @@ public class DoublyLinkedList<T> implements Listable<T>, Iterable<T> {
     Node tail;
     int size;
 
-
     private class Node {
         T data;
         Node next;
         Node prev;
     }
+    private class DoublyListIterator implements Iterator<T> {
+        Node nextNode;
+
+        DoublyListIterator() {
+            nextNode = head;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return nextNode != null;
+        }
+
+        @Override
+        public T next() throws NoSuchElementException {
+            if (!hasNext()) throw new NoSuchElementException();
+            T res = nextNode.data;
+            nextNode = nextNode.next;
+            return res;
+        }
+    }
 
     @Override
-    public Iterator<T> iterator() throws UnsupportedOperationException {
-        throw new UnsupportedOperationException();
+    public Iterator<T> iterator()  { return new DoublyListIterator();
     }
 
     public DoublyLinkedList() {
@@ -54,8 +76,17 @@ public class DoublyLinkedList<T> implements Listable<T>, Iterable<T> {
 
     @Override
     public void add(int index, T data) {
-        /*Node node = new Node();
+        Node node = new Node();
         node.data = data;
+        if (index == 0)
+            addFirst(data);
+        else if (index < 0){
+            System.out.println("Wrong Index. The student wasn't added");
+        }
+        else if (index > size) {
+            System.out.println("Index is bigger than the size of the list. The student will be attached to the end of the list at index " + size);
+            addLast(data);
+        }
         Node node1 = getNode(index - 1);
         if (node1 == null) return;
         if (node1 != tail) {
@@ -67,38 +98,6 @@ public class DoublyLinkedList<T> implements Listable<T>, Iterable<T> {
             size++;
         } else {
             addLast(data);
-        }*/
-        if (data == null) {
-            throw new IllegalArgumentException("No Info was passed");
-        }
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("Index out of bounds");
-        }
-        if (this.isEmpty()) {
-            Node add = new Node();
-            head = add;
-            tail = add;
-            size = 1;
-        } else if (size == 1) {
-            if (index == 0) {
-                this.addFirst(data);
-            } else {
-                this.addLast(data);
-            }
-        } else if (index == size) {
-            this.addLast(data);
-        } else if (index == 0) {
-            this.addFirst(data);
-        } else {
-            Node current = head;
-            for (int i = 0; i < index - 1; i++) {
-                current = current.next;
-            }
-            Node next = current.next;
-            Node add = new Node();
-            next.prev = add;
-            current.next = add;
-            size++;
         }
     }
 
@@ -123,10 +122,16 @@ public class DoublyLinkedList<T> implements Listable<T>, Iterable<T> {
 
     @Override
     public void set(int index, T data) {
-        //TODO set ?????????????????
-        if (tail == null) throw new IllegalStateException();
-        tail.data = data;
-
+        Node current = head;
+        if (!isEmpty()) {
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+            current.data = data;
+        } else System.out.println("List is empty!");
+        if (index < 0 || index > this.size()) {
+            System.out.println("Index is wrong!");
+        }
     }
 
     @Override
@@ -150,7 +155,7 @@ public class DoublyLinkedList<T> implements Listable<T>, Iterable<T> {
     @Override
     public void remove(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index out of bounds");
+            throw new IndexOutOfBoundsException("Wrong index!");
         }
         Node remove = head;
         for (int i = 0; i < index; i++) {
@@ -190,12 +195,19 @@ public class DoublyLinkedList<T> implements Listable<T>, Iterable<T> {
 
     @Override
     public int size() {
-        return size;   //TODO SIZE!!!!!!!!!!!!!!
+        return size;
     }
 
     @Override
     public void printAll() {
-//TODO printall
+        if(isEmpty()){
+            System.out.println("The list is empty!");
+        }
+        Node temp = head;
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
     }
 
     @Override

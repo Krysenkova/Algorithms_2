@@ -13,6 +13,6 @@ public class SurnameComparator implements Comparator<Student> {
         } else if (o2.getSurname() == null) {
             return -1;
         }
-        return o1.getSurname().compareTo(o2.getSurname());
+        return o1.getSurname().compareTo(o2.getSurname()); //returns 0 if equal, <0 if o2 greater, >0 if o2 less
     }
 }

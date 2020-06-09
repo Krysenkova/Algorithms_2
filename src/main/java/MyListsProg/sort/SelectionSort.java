@@ -3,7 +3,7 @@ package MyListsProg.sort;
 import MyListsProg.compare.Comparator;
 import MyListsProg.list.Listable;
 
-public class SelectionSort<T> extends Swapper implements Sortable<T> {
+public class SelectionSort<T> extends Swapper<T> implements Sortable<T> {
     @Override
     public void sort(Listable<T> list, Comparator<T> comparator) {
         int minimum;
@@ -16,6 +16,5 @@ public class SelectionSort<T> extends Swapper implements Sortable<T> {
             }
             swap(list, i, minimum);
         }
-
     }
 }

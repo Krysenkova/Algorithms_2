@@ -4,6 +4,7 @@ import MyListsProg.data.Student;
 import MyListsProg.list.Listable;
 import MyListsProg.main.Console;
 
+
 public class OptionMenu {
     public static void options(Listable<Student> list) {
         int option = 1;
@@ -16,8 +17,13 @@ public class OptionMenu {
                     list.add(studentToAdd);
                     break;
                 case 2:
+                    int position;
                     Student studentToAddAtPosition = Console.readStudentFromStdin();
-                    int position = Console.getPosition();
+                    do {
+                        position = Console.getPosition();
+                        if (position < 0)
+                            System.out.println("Index cannot be negative. try again!");
+                    } while (position < 0);
                     list.add(position, studentToAddAtPosition);
                     break;
                 case 3:
@@ -39,7 +45,15 @@ public class OptionMenu {
                     System.out.println("Number of students: " + list.size());
                     break;
                 case 8:
-                    list.remove(Console.getPosition());
+                    int toRemove;
+                    do {
+                        toRemove = Console.getPosition();
+                        if (toRemove >= list.size()) {
+                            System.out.println("The is no student at position " + toRemove + ". The max.position in the list now is " + (list.size() - 1) + ". Try again!");
+                        }
+                    }
+                    while (toRemove >= list.size());
+                    list.remove(toRemove);
                     System.out.println("The student deleted from the list");
                     break;
                 case 9:
@@ -53,6 +67,8 @@ public class OptionMenu {
                     SortingMenu.sortingMenu(list);
                 case 0:
                     break;
+                default:
+                    System.out.println("Wrong input.Try again!");
             }
         }
     }

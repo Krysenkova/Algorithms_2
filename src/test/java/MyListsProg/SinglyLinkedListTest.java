@@ -4,6 +4,7 @@
 package MyListsProg;
 
 import MyListsProg.data.Student;
+import MyListsProg.list.DoublyLinkedList;
 import MyListsProg.list.SinglyLinkedList;
 import org.junit.Test;
 import org.junit.Assert;
@@ -14,7 +15,7 @@ public class SinglyLinkedListTest {
         SinglyLinkedList<Student> list = new SinglyLinkedList<>();
         var s1 = new Student("Watson", "John", 1, 3568);
         var s2 = new Student("Holmes", "Sherlock", 5, 7629);
-        var s3 = new Student("Moriarty", "James", 3, 4321);
+        var s3 = new Student("Moriarty", "Jim", 3, 4321);
         list.add(s1);
         list.add(s2);
         list.add(s3);
@@ -55,6 +56,14 @@ public class SinglyLinkedListTest {
         Assert.assertEquals(s4, testList.get(0));
     }
 
+    @Test
+    public void setTest(){
+        SinglyLinkedList<Student> testList = provideList();
+        var s4 = new Student("Hooper", "Molly",2,3256);
+        testList.set(1, s4);
+        Assert.assertEquals(s4, testList.get(1));
+        Assert.assertEquals(3, testList.size());
+    }
     @Test
     public void removeTest(){
         SinglyLinkedList<Student> testList = provideList();

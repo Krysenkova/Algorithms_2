@@ -16,7 +16,7 @@ public class SelectionSortTest {
     public void selectionSortBySurnameTest() {
         var s3 = new Student("Watson", "John", 1, 3568);
         var s1 = new Student("Holmes", "Sherlock", 5, 7629);
-        var s2 = new Student("Moriarty", "James", 3, 4321);
+        var s2 = new Student("Moriarty", "Jim", 3, 4321);
         SinglyLinkedList<Student> list = new SinglyLinkedList<>();
         list.add(s3);
         list.add(s1);
@@ -42,7 +42,7 @@ public class SelectionSortTest {
     public void selectionSortByPrenameTest() {
         var s1 = new Student("Watson", "John", 1, 3568);
         var s2 = new Student("Holmes", "Sherlock", 5, 7629);
-        var s3 = new Student("Moriarty", "James", 3, 4321);
+        var s3 = new Student("Moriarty", "Jim", 3, 4321);
         SinglyLinkedList<Student> list = new SinglyLinkedList<>();
         list.add(s1);
         list.add(s2);
@@ -68,7 +68,7 @@ public class SelectionSortTest {
     public void selectionSortByCourseTest() {
         var s1 = new Student("Watson", "John", 1, 3568);
         var s2 = new Student("Holmes", "Sherlock", 5, 7629);
-        var s3 = new Student("Moriarty", "James", 3, 4321);
+        var s3 = new Student("Moriarty", "Jim", 3, 4321);
         SinglyLinkedList<Student> list = new SinglyLinkedList<>();
         list.add(s1);
         list.add(s2);
@@ -94,7 +94,7 @@ public class SelectionSortTest {
     public void selectionSortByMatNumTest() {
         var s1 = new Student("Watson", "John", 1, 3568);
         var s2 = new Student("Holmes", "Sherlock", 5, 7629);
-        var s3 = new Student("Moriarty", "James", 3, 4321);
+        var s3 = new Student("Moriarty", "Jim", 3, 4321);
         SinglyLinkedList<Student> list = new SinglyLinkedList<>();
         list.add(s1);
         list.add(s2);

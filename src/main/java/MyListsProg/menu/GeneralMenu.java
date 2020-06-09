@@ -8,14 +8,17 @@ import MyListsProg.main.Console;
 public class GeneralMenu {
     public static void chooseListMenu() {
         header();
-        System.out.println("Select list type before starting the main menu:");
-        System.out.println();
-        System.out.printf("1. SinglyLinkedList %n2. DoublyLinkedList %n");
-        System.out.println();
-        int option = Console.readIntFromStdin("Please enter a number for an option: ");
-        if (option < 1 || option > 2) {
-            System.out.println("Incorrect number. Try again!");
+        int option = 0;
+        while (option < 1 || option > 2) {
+            System.out.println("Select list type before starting the main menu:");
+            System.out.println();
+            System.out.printf("1. SinglyLinkedList %n2. DoublyLinkedList %n");
+            System.out.println();
             option = Console.readIntFromStdin("Please enter a number for an option: ");
+            if (option < 1 || option > 2) {
+                System.out.println("Incorrect number. Try again!");
+                System.out.println();
+            }
         }
         if (option == 1) {
             singlyMenu();
@@ -39,12 +42,14 @@ public class GeneralMenu {
         System.out.println(" 0. Exit");
         System.out.println();
     }
+
     public static void singlyMenu() {
         header();
         System.out.println("You selected SinglyLinkedList:");
         SinglyLinkedList<Student> singlyLinkedList = new SinglyLinkedList<>();
         OptionMenu.options(singlyLinkedList);
     }
+
     public static void doublyMenu() {
         header();
         System.out.println("You selected DoublyLinkedList:");

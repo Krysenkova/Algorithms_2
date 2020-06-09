@@ -17,7 +17,7 @@ public class App {
 
     }
     public static void sortAndPrint(Listable<Student> list, Sortable<Student> algorithm, Comparator<Student> comparator){
-        System.out.println("Sort algorithm: " + algorithm.getClass().getSimpleName() + "Comparator: " + comparator.getClass().getSimpleName());
+        System.out.println("Sort algorithm: " + algorithm.getClass().getSimpleName() + "  Comparator: " + comparator.getClass().getSimpleName());
         algorithm.sort(list, comparator);
         for (int i = 0; i < list.size(); i++) {
             System.out.println((i + 1) + ". " + list.get(i));

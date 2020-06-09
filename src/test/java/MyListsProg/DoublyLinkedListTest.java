@@ -10,7 +10,7 @@ public class DoublyLinkedListTest {
         DoublyLinkedList<Student> list = new DoublyLinkedList<>();
         var s1 = new Student("Watson", "John", 1, 3568);
         var s2 = new Student("Holmes", "Sherlock", 5, 7629);
-        var s3 = new Student("Moriarty", "James", 3, 4321);
+        var s3 = new Student("Moriarty", "Jim", 3, 4321);
         list.add(s1);
         list.add(s2);
         list.add(s3);
@@ -45,11 +45,20 @@ public class DoublyLinkedListTest {
         DoublyLinkedList<Student> list = new DoublyLinkedList<>();
         var s1 = new Student("Watson", "John", 1, 3568);
         var s2 = new Student("Holmes", "Sherlock", 5, 7629);
-        var s3 = new Student("Moriarty", "James", 3, 4321);
+        var s3 = new Student("Moriarty", "Jim", 3, 4321);
         list.add(s1);
         list.add(s2);
         list.add(s3);
         Assert.assertEquals(s2, list.get(1));
+    }
+
+    @Test
+    public void doubly_setTest(){
+        DoublyLinkedList<Student> testList = provideDoublyList();
+        var s4 = new Student("Hooper", "Molly",2,3256);
+        testList.set(1, s4);
+        Assert.assertEquals(s4, testList.get(1));
+        Assert.assertEquals(3, testList.size());
     }
 
     @Test
@@ -84,9 +93,9 @@ public class DoublyLinkedListTest {
         Assert.assertTrue(testList.isEmpty());
     }
     @Test
-    public void isEmptyFalseTest(){
+    public void doubly_isEmptyFalseTest(){
         DoublyLinkedList<Student> testList = provideDoublyList();
         Assert.assertFalse(testList.isEmpty());
-        //TODO Solve problem with size
+
     }
 }

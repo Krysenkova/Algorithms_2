@@ -10,6 +10,7 @@ import MyListsProg.main.App;
 import MyListsProg.main.Console;
 import MyListsProg.sort.BubbleSort;
 import MyListsProg.sort.SelectionSort;
+import MyListsProg.sort.Sortable;
 
 public class SortingMenu {
     private static int sortMenu() {//for option 11
